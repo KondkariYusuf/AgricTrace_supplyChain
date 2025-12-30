@@ -1,1211 +1,643 @@
+# 🌾 AgriTrace - Agricultural Supply Chain Transparency Platform
+
 <div align="center">
 
-# 🌾 AgriTrace
+![AgriTrace Logo](https://res.cloudinary.com/doihobmas/image/upload/v1767030870/Gemini_Generated_Image_iaur6hiaur6hiaur_xidg5v.png)
+![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-1.0.0-orange?style=for-the-badge)
 
-### **Blockchain-Powered Agricultural Supply Chain Management Platform**
+**A revolutionary blockchain-powered platform ensuring complete transparency and traceability in agricultural supply chains from farm to table.**
 
-*A Government of Odisha Digital Initiative*
-
-[![License](https://img.shields.io/badge/license-Government-blue.svg)](LICENSE)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-18.3-61dafb)](https://reactjs.org/)
-[![Blockchain](https://img.shields.io/badge/Blockchain-Ethereum-627EEA)](https://ethereum.org/)
-[![Status](https://img.shields.io/badge/status-production-success)]()
-
----
-
-**Empowering Farmers Through Technology | Complete Transparency | Farm to Table Traceability**
+[Features](#-key-features) • [Architecture](#-architecture) • [Setup](#-getting-started) • [Documentation](#-documentation) • [Contributing](#-contributing)
 
 </div>
 
 ---
 
-## 📑 Table of Contents
+## 📋 Table of Contents
 
-1. [Overview](#-overview)
-2. [System Architecture](#-system-architecture)
-3. [System Design](#-system-design)
-4. [User Manual](#-user-manual)
-5. [Detailed Workflows](#-detailed-workflows)
-6. [Current Implementation](#-current-implementation)
-7. [Technology Stack](#-technology-stack)
-8. [Roadmap - Phase 2](#-roadmap---phase-2)
-9. [Getting Started](#-getting-started)
-10. [Project Structure](#-project-structure)
-11. [API Documentation](#-api-documentation)
-12. [Contributing](#-contributing)
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Architecture](#️-architecture)
+- [Tech Stack](#️-tech-stack)
+- [User Roles & Workflows](#-user-roles--workflows)
+- [API Integrations](#-api-integrations)
+- [Database Schema](#️-database-schema)
+- [Scalability & Infrastructure](#-scalability--infrastructure)
+- [Deployment](#-deployment)
+- [Research & Market Analysis](#-research--market-analysis)
+- [Business Viability & Revenue Model](#-business-viability--revenue-model)
+- [Team Contributions](#-team-contributions)
 
----
-
-## 🌟 Overview
-
-**AgriTrace** is a revolutionary decentralized application (dApp) that transforms agricultural supply chain management through blockchain technology. Built for the Government of Odisha, it ensures complete transparency, traceability, and trust in the agricultural ecosystem from farm to consumer.
-
-### 🎯 Mission Statement
-
-To empower farmers across Odisha with modern technology that:
-- ✅ Ensures complete transparency in the agricultural supply chain
-- ✅ Provides fair pricing mechanisms through marketplace integration
-- ✅ Builds consumer trust through verifiable blockchain certificates
-- ✅ Promotes food security through immutable traceability records
-- ✅ Enables direct farmer-to-consumer connections
-
-### 🏆 Key Benefits
-
-| Stakeholder | Benefits |
-|------------|----------|
-| **Farmers** | Fair pricing, direct market access, digital certificates, reputation building |
-| **Distributors** | Verified products, inventory management, transparent transactions |
-| **Retailers** | Quality assurance, complete traceability, consumer trust |
-| **Consumers** | Product authenticity, safety assurance, origin verification |
-| **Government** | Supply chain monitoring, quality control, data analytics |
 
 ---
 
-## 🏗️ System Architecture
+## 🎯 Overview
 
-### High-Level Architecture
+AgriTrace is a comprehensive agricultural supply chain management platform developed for the ****. It leverages cutting-edge technologies including **blockchain**, **AI-powered quality analysis**, and **IoT integration** to ensure complete transparency, traceability, and fair pricing throughout the agricultural supply chain.
+![AgriTrace Diagram](https://res.cloudinary.com/doihobmas/image/upload/v1767030680/Gemini_Generated_Image_u5qyjcu5qyjcu5qy_kse7i3.png)
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         CLIENT LAYER                             │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐         │
-│  │   Web App    │  │  Mobile App  │  │  Admin Panel │         │
-│  │  (React)     │  │  (Future)    │  │  (React)     │         │
-│  └──────────────┘  └──────────────┘  └──────────────┘         │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                      APPLICATION LAYER                           │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐         │
-│  │   Services   │  │   Contexts   │  │   Hooks      │         │
-│  │  - IPFS      │  │  - Auth      │  │  - Contract  │         │
-│  │  - Blockchain│  │  - Web3      │  │  - Custom    │         │
-│  │  - Cert      │  │              │  │              │         │
-│  └──────────────┘  └──────────────┘  └──────────────┘         │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-        ┌─────────────────────┼─────────────────────┐
-        ▼                     ▼                     ▼
-┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│  Blockchain   │    │     IPFS     │    │   Database   │
-│  (Ethereum)   │    │   (Pinata)   │    │  (Supabase)  │
-│               │    │               │    │              │
-│  - Smart      │    │  - Certificates│   │  - Users     │
-│    Contracts  │    │  - Metadata   │   │  - Batches   │
-│  - Events     │    │  - Files      │   │  - Transactions│
-└──────────────┘    └──────────────┘    └──────────────┘
-```
+### Mission
 
-### Component Architecture
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    PRESENTATION LAYER                        │
-├─────────────────────────────────────────────────────────────┤
-│  Pages                                                       │
-│  ├── Landing, Login, Signup                                 │
-│  ├── Dashboard (Farmer/Distributor/Retailer)               │
-│  ├── Marketplace (Farmer/Distributor/Retailer)             │
-│  ├── Inventory Management                                    │
-│  ├── Batch Registration                                      │
-│  └── Verification System                                     │
-│                                                              │
-│  Components                                                  │
-│  ├── Layout (Header, Footer)                                 │
-│  ├── UI Components (shadcn/ui)                              │
-│  ├── Business Components                                     │
-│  │   ├── BatchDetailsModal                                  │
-│  │   ├── PurchaseModal                                      │
-│  │   ├── QRCodeScanner                                      │
-│  │   └── VerificationSystem                                 │
-│  └── ProtectedRoute                                          │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                     BUSINESS LOGIC LAYER                      │
-├─────────────────────────────────────────────────────────────┤
-│  Services                                                    │
-│  ├── blockchain/                                             │
-│  │   └── Transaction Management                             │
-│  ├── ipfs/                                                   │
-│  │   ├── File Storage                                       │
-│  │   └── Group Management                                   │
-│  ├── certificates/                                           │
-│  │   └── PDF Generation                                     │
-│  └── transactions/                                           │
-│      └── Supply Chain Tracking                              │
-│                                                              │
-│  Contexts                                                    │
-│  ├── AuthContext (Authentication)                           │
-│  └── Web3Context (Blockchain Connection)                    │
-│                                                              │
-│  Hooks                                                       │
-│  ├── useContract (Smart Contract Interactions)             │
-│  └── useAuth (Authentication Helpers)                       │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      DATA LAYER                               │
-├─────────────────────────────────────────────────────────────┤
-│  Blockchain (Ethereum)                                       │
-│  ├── Smart Contracts                                         │
-│  ├── Events & Logs                                           │
-│  └── Transaction History                                     │
-│                                                              │
-│  IPFS (Pinata)                                               │
-│  ├── Certificate Storage                                    │
-│  ├── Metadata Storage                                        │
-│  └── File Groups                                             │
-│                                                              │
-│  Database (Supabase/PostgreSQL)                              │
-│  ├── User Profiles                                           │
-│  ├── Batch Records                                           │
-│  ├── Transaction Records                                     │
-│  └── Inventory Data                                          │
-└─────────────────────────────────────────────────────────────┘
-```
+To empower farmers across Odisha with modern technology that provides:
+- ✅ Complete transparency in the agricultural supply chain
+- ✅ Fair pricing through market data integration
+- ✅ Consumer trust through verifiable blockchain certificates
+- ✅ Food security through quality assurance
+- ✅ Accessibility for farmers without internet via voice-based registration
 
 ---
 
-## 🎨 System Design
+## ✨ Key Features
+
+### 🔐 Authentication & Authorization
+- **Multi-role access control**: Farmer, Distributor, Retailer, Admin
+- **Web3 wallet integration**: MetaMask and other Ethereum wallets
+- **Secure authentication**: Supabase Auth with JWT tokens
+- **Role-based dashboard**: Customized views for each user type
+
+### 📦 Batch Registration
+- **Voice-based registration**: Phone call registration via VoiceGenie API for farmers without internet
+- **AI-powered data extraction**: Google Gemini AI extracts structured data from conversation transcripts
+- **IoT soil data integration**: Real-time soil quality analysis from hardware sensors
+- **Crop quality assessment**: AI-powered analysis using Gemini 2.5 Flash
+- **PDF certificate generation**: Automated harvest certificates with QR codes
+- **IPFS storage**: Immutable certificate storage on Pinata IPFS
+- **Blockchain registration**: Ethereum smart contract integration for permanent records
+
+### 🛒 Marketplace System
+- **Multi-tier marketplace**: Separate marketplaces for farmers, distributors, and retailers
+- **Real-time price suggestions**: Integration with mandi price APIs
+- **Inventory management**: Track batches through supply chain stages
+- **Purchase transactions**: Blockchain-verified ownership transfers
+- **QR code scanning**: Quick product verification and tracking
+
+### 📊 Supply Chain Tracking
+- **End-to-end traceability**: Track products from farm to consumer
+- **Transaction history**: Complete blockchain transaction records
+- **Certificate verification**: Verify authenticity of harvest certificates
+- **Supply chain visualization**: Visual representation of product journey
+
+### 🤖 AI & IoT Integration
+- **VoiceGenie integration**: Voice-based batch registration for offline farmers
+- **Google Gemini AI**: Transcript analysis and crop quality assessment
+- **IoT soil sensors**: Real-time soil data (temperature, humidity, moisture, pH, NPK levels)
+- **Crop health analysis**: AI-powered quality assessment based on soil data
+
+### 🎨 Modern UI/UX
+- **Responsive design**: Mobile-first approach with Tailwind CSS
+- **Shadcn UI components**: Beautiful, accessible component library
+- **Dark mode support**: Theme switching capability
+- **Real-time updates**: Live data synchronization
+
+---
+
+## 🏗️ Architecture
+
+### System Architecture Overview
+![AgriTrace Diagram](https://res.cloudinary.com/doihobmas/image/upload/v1767031082/Screenshot_2025-12-29_232744_rq71ik.png)
+
+```mermaid
+graph TB
+    subgraph "Frontend Layer"
+        A[React + Vite App] --> B[Shadcn UI Components]
+        A --> C[React Router]
+        A --> D[Web3 Context]
+        A --> E[Auth Context]
+    end
+    
+    subgraph "Service Layer"
+        F[VoiceGenie Service] --> G[Gemini AI Service]
+        H[IoT Soil Service] --> I[Crop Analysis Service]
+        J[IPFS Service] --> K[Pinata API]
+        L[Blockchain Service] --> M[Ethereum Smart Contract]
+    end
+    
+    subgraph "External APIs"
+        N[VoiceGenie API]
+        O[Google Gemini API]
+        P[IoT Hardware API]
+        Q[Mandi Price API]
+        R[Pinata IPFS]
+    end
+    
+    subgraph "Backend Services"
+        S[Supabase Database]
+        T[Supabase Auth]
+        U[Supabase Storage]
+    end
+    
+    subgraph "Blockchain"
+        V[Ethereum Network]
+        W[AgriTrace Smart Contract]
+    end
+    
+    A --> F
+    A --> H
+    A --> J
+    A --> L
+    F --> N
+    G --> O
+    H --> P
+    I --> O
+    J --> R
+    L --> V
+    V --> W
+    A --> S
+    A --> T
+    E --> T
+    D --> V
+```
+
+### Batch Registration Flow
+
+```mermaid
+sequenceDiagram
+    participant F as Farmer
+    participant VG as VoiceGenie API
+    participant G as Gemini AI
+    participant HD as Helper Desk
+    participant IOT as IoT Device
+    participant CA as Crop Analysis
+    participant IPFS as Pinata IPFS
+    participant BC as Blockchain
+    
+    F->>VG: Phone Call Registration
+    VG->>VG: Collect Crop Data
+    VG->>G: Send Transcript
+    G->>G: Extract Structured Data
+    G->>HD: Return JSON Data
+    HD->>HD: Review & Validate
+    HD->>IOT: Fetch Soil Data
+    IOT->>CA: Return Soil Parameters
+    CA->>G: Analyze Crop Quality
+    G->>CA: Return Quality Assessment
+    CA->>IPFS: Generate & Upload Certificate
+    IPFS->>IPFS: Store PDF on IPFS
+    IPFS->>BC: Register Batch on Blockchain
+    BC->>BC: Create Smart Contract Record
+    BC->>HD: Return Transaction Hash
+    HD->>F: Confirmation
+```
+
+### Supply Chain Flow
+
+```mermaid
+graph LR
+    A[Farmer<br/>Registers Batch] --> B[Generate<br/>Certificate]
+    B --> C[Upload to<br/>IPFS]
+    C --> D[Register on<br/>Blockchain]
+    D --> E[Farmer<br/>Marketplace]
+    E --> F[Distributor<br/>Purchases]
+    F --> G[Update<br/>Ownership]
+    G --> H[Distributor<br/>Inventory]
+    H --> I[Distributor<br/>Marketplace]
+    I --> J[Retailer<br/>Purchases]
+    J --> K[Update<br/>Ownership]
+    K --> L[Retailer<br/>Inventory]
+    L --> M[End Consumer]
+    
+    style A fill:#90EE90
+    style F fill:#87CEEB
+    style J fill:#DDA0DD
+    style M fill:#FFB6C1
+```
 
 ### Data Flow Architecture
 
-#### 1. Batch Registration Flow
-
-```
-┌──────────┐
-│  Farmer  │
-└────┬─────┘
-     │
-     │ 1. Fill Batch Form
-     ▼
-┌─────────────────┐
-│  React Frontend │
-└────┬────────────┘
-     │
-     │ 2. Generate Certificate PDF
-     ▼
-┌─────────────────┐
-│ Certificate     │
-│ Generator       │
-└────┬────────────┘
-     │
-     │ 3. Upload to IPFS
-     ▼
-┌─────────────────┐
-│  IPFS Service   │
-│  (Pinata)       │
-└────┬────────────┘
-     │
-     │ 4. Get IPFS Hash
-     │ 5. Register on Blockchain
-     ▼
-┌─────────────────┐
-│ Smart Contract  │
-│ (Ethereum)      │
-└────┬────────────┘
-     │
-     │ 6. Store in Database
-     ▼
-┌─────────────────┐
-│  Supabase DB    │
-└─────────────────┘
-```
-
-#### 2. Purchase Transaction Flow
-
-```
-┌──────────────┐         ┌──────────────┐
-│  Distributor │         │    Farmer    │
-└──────┬───────┘         └──────┬───────┘
-       │                        │
-       │ 1. Browse Marketplace  │
-       │ 2. Select Batch        │
-       │ 3. Initiate Purchase   │
-       ▼                        │
-┌───────────────────────────────┐
-│   Purchase Modal Component    │
-└──────┬────────────────────────┘
-       │
-       │ 4. Generate Purchase Certificate
-       ▼
-┌───────────────────────────────┐
-│   Certificate Generator       │
-└──────┬────────────────────────┘
-       │
-       │ 5. Upload Certificate to IPFS Group
-       ▼
-┌───────────────────────────────┐
-│   IPFS Group Manager          │
-└──────┬────────────────────────┘
-       │
-       │ 6. Record Transaction on Blockchain
-       ▼
-┌───────────────────────────────┐
-│   Blockchain Transaction      │
-│   Manager                     │
-└──────┬────────────────────────┘
-       │
-       │ 7. Update Ownership
-       │ 8. Store Transaction
-       ▼
-┌───────────────────────────────┐
-│   Database Update             │
-│   (Supabase)                  │
-└───────────────────────────────┘
-```
-
-#### 3. Verification Flow
-
-```
-┌──────────┐
-│  User    │
-└────┬─────┘
-     │
-     │ 1. Scan QR Code
-     ▼
-┌─────────────────┐
-│ QR Code Scanner │
-└────┬────────────┘
-     │
-     │ 2. Extract Batch ID
-     ▼
-┌─────────────────┐
-│ Verification    │
-│ System          │
-└────┬────────────┘
-     │
-     ├──► 3a. Query Database
-     │    └──► Batch Info
-     │
-     ├──► 3b. Query Blockchain
-     │    └──► Transaction History
-     │
-     └──► 3c. Query IPFS
-          └──► Certificates
-     │
-     ▼
-┌─────────────────┐
-│ Display Complete │
-│ Supply Chain     │
-│ History          │
-└─────────────────┘
-```
-
-### Database Schema Design
-
-#### Core Tables
-
-```sql
--- Users & Authentication
-profiles
-├── id (UUID, PK)
-├── user_id (UUID, FK -> auth.users)
-├── full_name (TEXT)
-├── email (TEXT)
-├── phone (TEXT)
-├── user_type (ENUM: farmer, distributor, retailer, admin)
-├── wallet_address (TEXT)
-├── farm_location (TEXT)
-└── created_at (TIMESTAMP)
-
--- Batches
-batches
-├── id (UUID, PK)
-├── farmer_id (UUID, FK -> profiles)
-├── crop_type (TEXT)
-├── variety (TEXT)
-├── harvest_quantity (NUMERIC)
-├── harvest_date (DATE)
-├── sowing_date (DATE)
-├── grading (TEXT)
-├── certification (TEXT)
-├── price (NUMERIC)
-├── ipfs_hash (TEXT)
-├── group_id (TEXT) -- Pinata Group ID
-├── blockchain_hash (TEXT)
-├── current_owner (UUID, FK -> profiles)
-└── created_at (TIMESTAMP)
-
--- Transactions
-transactions
-├── transaction_id (TEXT, PK)
-├── batch_id (UUID, FK -> batches)
-├── type (ENUM: HARVEST, PURCHASE, TRANSFER)
-├── from_address (TEXT)
-├── to_address (TEXT)
-├── quantity (NUMERIC)
-├── price (NUMERIC)
-├── transaction_timestamp (TIMESTAMP)
-├── ipfs_hash (TEXT)
-├── blockchain_hash (TEXT)
-└── metadata (JSONB)
-
--- Group Files (IPFS Certificates)
-group_files
-├── id (UUID, PK)
-├── group_id (TEXT)
-├── batch_id (UUID, FK -> batches)
-├── file_name (TEXT)
-├── ipfs_hash (TEXT)
-├── transaction_type (TEXT)
-├── file_size (INTEGER)
-├── metadata (JSONB)
-└── created_at (TIMESTAMP)
-
--- Marketplace
-marketplace_availability
-├── id (UUID, PK)
-├── batch_id (UUID, FK -> batches)
-├── seller_id (UUID, FK -> profiles)
-├── available_quantity (NUMERIC)
-├── price_per_kg (NUMERIC)
-├── status (ENUM: available, sold, reserved)
-└── updated_at (TIMESTAMP)
-```
-
-### Smart Contract Design
-
-```solidity
-contract AgriTrace {
-    // Roles
-    bytes32 FARMER_ROLE
-    bytes32 DISTRIBUTOR_ROLE
-    bytes32 RETAILER_ROLE
+```mermaid
+graph TD
+    subgraph "Data Sources"
+        A[VoiceGenie Calls]
+        B[IoT Sensors]
+        C[User Input]
+    end
     
-    // Core Structures
-    struct Batch {
-        uint256 id
-        address farmer
-        string crop
-        string variety
-        string harvestQuantity
-        string harvestDate
-        string grading
-        string certification
-        uint256 price
-        string ipfsHash
-        address currentOwner
-    }
+    subgraph "Processing"
+        D[Gemini AI Extraction]
+        E[Data Validation]
+        F[Quality Analysis]
+    end
     
-    // Mappings
-    mapping(uint256 => Batch) batches
-    mapping(address => uint256) reputation
+    subgraph "Storage"
+        G[(Supabase DB)]
+        H[IPFS/Pinata]
+        I[Blockchain]
+    end
     
-    // Events
-    event BatchRegistered(...)
-    event PurchaseRecorded(...)
-    event OwnershipTransferred(...)
+    subgraph "Output"
+        J[PDF Certificates]
+        K[Dashboards]
+        L[Marketplace]
+    end
     
-    // Functions
-    function registerBatch(BatchInput) external
-    function recordHarvest(...) external
-    function transferBatch(uint256, address) external
-    function recordPurchase(...) external
-}
+    A --> D
+    B --> F
+    C --> E
+    D --> E
+    E --> G
+    F --> H
+    E --> I
+    H --> J
+    G --> K
+    G --> L
+    I --> K
 ```
 
 ---
 
-## 📖 User Manual
-
-### Getting Started
-
-#### 1. Account Registration
-
-**Step-by-Step Guide:**
-
-1. **Navigate to Signup Page**
-   - Click "Sign Up" button on landing page
-   - Or visit `/signup` directly
-
-2. **Choose User Type**
-   - Select your role: Farmer, Distributor, or Retailer
-   - Each role has different permissions and features
-
-3. **Fill Registration Form**
-   ```
-   Required Fields:
-   - Full Name
-   - Email Address
-   - Phone Number
-   - Password (min 8 characters)
-   - User Type Selection
-   - Wallet Address (for blockchain transactions)
-   ```
-
-4. **Connect Wallet** (Optional but Recommended)
-   - Install MetaMask browser extension
-   - Click "Connect Wallet" button
-   - Approve connection request
-   - Your wallet address will be auto-filled
-
-5. **Complete Registration**
-   - Click "Create Account"
-   - Verify email (if required)
-   - You'll be redirected to dashboard
-
-#### 2. Login Process
-
-1. **Navigate to Login Page**
-   - Click "Login" button
-   - Or visit `/login`
-
-2. **Enter Credentials**
-   - Email/Phone and Password
-   - Or use wallet connection
-
-3. **Access Dashboard**
-   - After successful login
-   - Redirected to role-specific dashboard
-
-### Role-Specific Guides
-
-#### 👨‍🌾 For Farmers
-
-##### Dashboard Overview
-
-Your dashboard shows:
-- **Total Batches**: Number of batches registered
-- **Active Listings**: Batches currently in marketplace
-- **Total Sales**: Revenue from sales
-- **Pending Orders**: Purchase requests awaiting approval
-
-##### Registering a New Batch
-
-**Step 1: Navigate to Batch Registration**
-- Click "Register Batch" in dashboard
-- Or visit `/batch-registration`
-
-**Step 2: Fill Batch Information**
-
-```
-Required Information:
-├── Crop Type (e.g., Rice, Wheat, Vegetables)
-├── Variety (specific variety name)
-├── Harvest Quantity (in kg)
-├── Sowing Date
-├── Harvest Date
-├── Price per Kg (₹)
-├── Grading (Quality grade)
-├── Certification (Organic, etc.)
-└── Lab Test Results (if available)
-```
-
-**Step 3: Submit Registration**
-
-1. Click "Register Batch"
-2. System will:
-   - Generate harvest certificate PDF
-   - Upload certificate to IPFS
-   - Create Pinata group for batch
-   - Register batch on blockchain
-   - Store in database
-3. Wait for transaction confirmation
-4. Batch will appear in your inventory
-
-##### Managing Your Batches
-
-**View Batches:**
-- Go to Dashboard → "My Batches"
-- See all registered batches with status
-
-**Update Batch:**
-- Click on batch card
-- Edit price or details
-- Changes reflected in marketplace
-
-**View Certificates:**
-- Click "View Certificate" on any batch
-- Download PDF certificate
-- Share certificate link
-
-##### Selling to Distributors
-
-1. **List in Marketplace**
-   - Batches automatically appear in Farmer Marketplace
-   - Distributors can browse and purchase
-
-2. **Receive Purchase Requests**
-   - Notification when distributor wants to buy
-   - Review purchase details
-
-3. **Approve Purchase**
-   - Confirm quantity and price
-   - Transaction recorded on blockchain
-   - Certificate generated automatically
-
-#### 🚚 For Distributors
-
-##### Dashboard Overview
-
-Your dashboard shows:
-- **Total Purchases**: Batches bought from farmers
-- **Active Inventory**: Batches available for sale
-- **Total Sales**: Revenue from retailer sales
-- **Pending Orders**: Retailer purchase requests
-
-##### Buying from Farmers
-
-**Step 1: Browse Farmer Marketplace**
-- Navigate to `/marketplace`
-- View all available farmer batches
-- Filter by crop type, price, location
-
-**Step 2: Select Batch**
-- Click on batch card
-- View complete details:
-  - Crop information
-  - Quality grading
-  - Certificates
-  - Supply chain history
-  - Current price
-
-**Step 3: Make Purchase**
-- Click "Buy" button
-- Enter purchase quantity
-- Review total price
-- Confirm purchase
-
-**Step 4: Complete Transaction**
-- Connect wallet (if not connected)
-- Approve blockchain transaction
-- Wait for confirmation
-- Batch added to your inventory
-
-##### Managing Inventory
-
-**View Inventory:**
-- Go to `/distributor-inventory`
-- See all purchased batches
-- Check available quantities
-
-**Update Prices:**
-- Click on batch
-- Edit price per kg
-- Update for retailer marketplace
-
-**List for Retailers:**
-- Batches automatically appear in Retailer Marketplace
-- Retailers can browse and purchase
-
-##### Selling to Retailers
-
-1. **Retailer Marketplace**
-   - Your batches appear automatically
-   - Retailers can view and purchase
-
-2. **Process Sales**
-   - Similar to farmer purchase flow
-   - Transaction recorded on blockchain
-   - Certificate generated
-
-#### 🏪 For Retailers
-
-##### Dashboard Overview
-
-Your dashboard shows:
-- **Total Purchases**: Batches bought from distributors
-- **Active Inventory**: Products in stock
-- **Sales Analytics**: Revenue and trends
-
-##### Buying from Distributors
-
-**Step 1: Browse Retailer Marketplace**
-- Navigate to `/retailer-marketplace`
-- View distributor batches
-- Filter and search options
-
-**Step 2: Select Product**
-- Click on batch card
-- View:
-  - Complete supply chain history
-  - Original farmer information
-  - All certificates
-  - Quality information
-
-**Step 3: Make Purchase**
-- Click "Buy" button
-- Enter quantity
-- Review details
-- Confirm purchase
-
-**Step 4: Complete Transaction**
-- Approve blockchain transaction
-- Receive product in inventory
-- Access all certificates
-
-##### Product Verification
-
-**QR Code Verification:**
-1. Scan QR code on product
-2. View complete supply chain:
-   - Original farmer
-   - All transactions
-   - Quality certificates
-   - Blockchain verification
-
-**Manual Verification:**
-1. Go to `/verification`
-2. Enter batch ID or scan QR
-3. View complete history
-
-### Common Features
-
-#### 🔍 Product Tracking
-
-**Track Any Product:**
-1. Navigate to `/track`
-2. Enter batch ID or scan QR code
-3. View complete supply chain:
-   - Origin (farmer details)
-   - All transactions
-   - Current owner
-   - Certificates
-   - Blockchain verification
-
-#### 📱 QR Code System
-
-**Generate QR Codes:**
-- Each batch gets unique QR code
-- Accessible from batch details
-- Download QR code image
-- Print for physical products
-
-**Scan QR Codes:**
-- Use mobile camera
-- Or QR scanner component
-- Instant verification
-- Complete product history
-
-#### 📄 Certificate Management
-
-**View Certificates:**
-- All transactions generate certificates
-- Accessible from batch details
-- Download as PDF
-- Share certificate links
-
-**Certificate Types:**
-- Harvest Certificate (initial registration)
-- Purchase Certificate (each transaction)
-- Transfer Certificate (ownership changes)
-
-#### 👤 Profile Management
-
-**Update Profile:**
-1. Go to `/profile`
-2. Edit information:
-   - Personal details
-   - Contact information
-   - Farm location
-   - Wallet address
-3. Save changes
-
----
-
-## 🔄 Detailed Workflows
-
-### Workflow 1: Complete Supply Chain Journey
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    FARMER REGISTRATION                       │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-                    ┌─────────────────┐
-                    │ 1. Farmer       │
-                    │    Registers    │
-                    │    Batch        │
-                    └────────┬────────┘
-                             │
-                             │ a. Fill Form
-                             │ b. Generate Certificate
-                             │ c. Upload to IPFS
-                             │ d. Register on Blockchain
-                             │ e. Store in Database
-                             ▼
-                    ┌─────────────────┐
-                    │ 2. Batch        │
-                    │    Available in │
-                    │    Marketplace  │
-                    └────────┬────────┘
-                             │
-                             ▼
-┌─────────────────────────────────────────────────────────────┐
-│                  DISTRIBUTOR PURCHASE                        │
-└─────────────────────────────────────────────────────────────┘
-                             │
-                    ┌────────┴────────┐
-                    │ 3. Distributor  │
-                    │    Browses      │
-                    │    Marketplace  │
-                    └────────┬────────┘
-                             │
-                             │ a. Select Batch
-                             │ b. Review Details
-                             │ c. Initiate Purchase
-                             │ d. Generate Purchase Certificate
-                             │ e. Record on Blockchain
-                             │ f. Update Ownership
-                             ▼
-                    ┌─────────────────┐
-                    │ 4. Batch in     │
-                    │    Distributor  │
-                    │    Inventory    │
-                    └────────┬────────┘
-                             │
-                             ▼
-┌─────────────────────────────────────────────────────────────┐
-│                   RETAILER PURCHASE                         │
-└─────────────────────────────────────────────────────────────┘
-                             │
-                    ┌────────┴────────┐
-                    │ 5. Retailer    │
-                    │    Browses     │
-                    │    Marketplace │
-                    └────────┬────────┘
-                             │
-                             │ a. Select Product
-                             │ b. View Full History
-                             │ c. Verify Certificates
-                             │ d. Make Purchase
-                             │ e. Record Transaction
-                             │ f. Update Ownership
-                             ▼
-                    ┌─────────────────┐
-                    │ 6. Product      │
-                    │    Ready for    │
-                    │    Consumer     │
-                    └─────────────────┘
-```
-
-### Workflow 2: Certificate Generation Flow
-
-```
-User Action
-    │
-    ▼
-┌──────────────────────┐
-│ Transaction Trigger  │
-│ (Harvest/Purchase)   │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Collect Data         │
-│ - Batch Info         │
-│ - Transaction Details │
-│ - Parties Involved    │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Generate PDF         │
-│ - Government Style   │
-│ - All Details        │
-│ - QR Code            │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Upload to IPFS       │
-│ - Pinata Service      │
-│ - Group Association   │
-│ - Metadata Storage    │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Get IPFS Hash         │
-│ - Unique Identifier   │
-│ - Permanent Link      │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Store Reference      │
-│ - Database Entry      │
-│ - Group File Record   │
-│ - Transaction Link    │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│ Certificate Ready    │
-│ - Downloadable        │
-│ - Verifiable          │
-│ - Shareable           │
-└──────────────────────┘
-```
-
-### Workflow 3: Verification Process
-
-```
-User Scans QR Code
-    │
-    ▼
-┌──────────────────────┐
-│ Extract Batch ID     │
-└──────────┬───────────┘
-           │
-           ├─────────────────┬─────────────────┐
-           ▼                 ▼                 ▼
-┌──────────────────┐ ┌──────────────┐ ┌──────────────┐
-│ Query Database   │ │ Query        │ │ Query IPFS   │
-│ - Batch Info     │ │ Blockchain   │ │ - Certificates│
-│ - Owner Info     │ │ - Transactions│ │ - Metadata   │
-│ - Transactions   │ │ - Events     │ │ - Files      │
-└──────────┬───────┘ └──────┬───────┘ └──────┬───────┘
-           │                 │                 │
-           └─────────────────┼─────────────────┘
-                             │
-                             ▼
-                    ┌─────────────────┐
-                    │ Aggregate Data  │
-                    │ - Complete      │
-                    │   History       │
-                    │ - All           │
-                    │   Certificates  │
-                    │ - Blockchain    │
-                    │   Verification  │
-                    └────────┬────────┘
-                             │
-                             ▼
-                    ┌─────────────────┐
-                    │ Display Results │
-                    │ - Timeline View │
-                    │ - Certificate   │
-                    │   Gallery       │
-                    │ - Verification  │
-                    │   Status        │
-                    └─────────────────┘
-```
-
----
-
-## ✅ Current Implementation
-
-### Phase 1: Core Platform (✅ Completed)
-
-#### 🔐 Blockchain Integration
-- ✅ **Ethereum Smart Contracts**: Deployed on Sepolia Testnet
-- ✅ **Smart Contract Features**:
-  - Batch registration with complete metadata
-  - Ownership transfer tracking
-  - Purchase transaction recording
-  - Reputation system for farmers
-  - Role-based access control
-- ✅ **Transaction Management**: Complete blockchain transaction tracking
-- ✅ **Event Logging**: All events recorded and queryable
-
-#### 📦 IPFS Certificate Storage
-- ✅ **Decentralized Storage**: All certificates on IPFS via Pinata
-- ✅ **Group Management**: Certificates organized by batch groups
-- ✅ **Immutable Certificates**: PDF certificates for every transaction
-- ✅ **Verification System**: Complete certificate verification
-- ✅ **File Organization**: Efficient group-based file management
-
-#### 👥 Role-Based System
-- ✅ **Farmer Dashboard**: Complete batch management
-- ✅ **Distributor Dashboard**: Purchase and inventory management
-- ✅ **Retailer Dashboard**: Product tracking and verification
-- ✅ **Admin Dashboard**: System monitoring and analytics
-
-#### 🛒 Marketplace System
-- ✅ **Farmer Marketplace**: Direct sales to distributors
-- ✅ **Retailer Marketplace**: Distributor-to-retailer sales
-- ✅ **Real-time Pricing**: Market price integration
-- ✅ **Inventory Management**: Complete stock tracking
-- ✅ **Purchase Flow**: Streamlined buying process
-
-#### 📱 QR Code System
-- ✅ **Batch QR Codes**: Unique codes for each batch
-- ✅ **Certificate QR Codes**: Quick certificate access
-- ✅ **Verification QR Codes**: Instant product verification
-- ✅ **Mobile Support**: Scan and verify on any device
-
-#### 📄 Certificate Generation
-- ✅ **Automated PDF Generation**: Government-style certificates
-- ✅ **Transaction Certificates**: For every purchase/transfer
-- ✅ **Harvest Certificates**: Initial batch registration
-- ✅ **Complete History**: Full supply chain documentation
-
----
-
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
 ### Frontend
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| React | 18.3 | UI Framework |
-| TypeScript | 5.8 | Type Safety |
-| Vite | 5.4 | Build Tool |
-| shadcn/ui | Latest | UI Components |
-| Tailwind CSS | 3.4 | Styling |
-| React Query | 5.83 | State Management |
-| React Router | 6.30 | Routing |
+- **Framework**: React 18.3 with TypeScript
+- **Build Tool**: Vite 5.4
+- **UI Library**: Shadcn UI (Radix UI primitives)
+- **Styling**: Tailwind CSS 3.4
+- **Routing**: React Router DOM 6.30
+- **State Management**: React Context API + TanStack Query
+- **Forms**: React Hook Form + Zod validation
+- **Charts**: Recharts 2.15
+- **PDF Generation**: jsPDF 3.0
+- **QR Codes**: qrcode 1.5
 
 ### Blockchain
-| Technology | Version | Purpose |
-|-----------|---------|---------|
-| Ethereum | Sepolia | Blockchain Network |
-| Solidity | 0.8.20 | Smart Contracts |
-| Ethers.js | 6.15 | Blockchain Interaction |
-| OpenZeppelin | 4.9.3 | Security Libraries |
+- **Network**: Ethereum
+- **Library**: Ethers.js 6.15
+- **Smart Contracts**: Solidity 0.8.20
+- **Contract Framework**: OpenZeppelin Contracts
 
-### Storage & Database
-| Technology | Purpose |
-|-----------|---------|
-| IPFS (Pinata) | Decentralized Certificate Storage |
-| Supabase | PostgreSQL Database |
-| Supabase Auth | User Authentication |
+### Backend & Database
+- **Database**: Supabase (PostgreSQL)
+- **Authentication**: Supabase Auth
+- **Storage**: Supabase Storage + Pinata IPFS
+- **API**: RESTful APIs
+
+### AI & External Services
+- **AI Service**: Google Gemini 2.5 Flash API
+- **Voice Service**: VoiceGenie API
+- **IoT Integration**: Hardware API (REST)
+- **Price Data**: Mandi Price APIs
+- **IPFS**: Pinata IPFS Service
 
 ### Development Tools
-| Tool | Purpose |
-|------|---------|
-| ESLint | Code Linting |
-| TypeScript | Type Checking |
-| Git | Version Control |
+- **Language**: TypeScript 5.8
+- **Linting**: ESLint 9.32
+- **Package Manager**: npm
+- **Version Control**: Git
+
+## 🛠️Infrastructure
+
+AgriTrace is built on a modular, high-performance architecture designed for scalability, security, and low-latency interaction.
+
+### 🖥️ Frontend Ecosystem
+- **Core Framework**: React 18.3 with TypeScript 5.8 - Ensures type safety and component reusability.
+- **Build System**: Vite 5.4 - Utilizing SWC for lightning-fast HMR and optimized production builds.
+- **UI/UX Library**: Shadcn UI (built on Radix UI) - Accessible, headless components for a robust design system.
+- **Styling Engine**: Tailwind CSS 3.4 - Utility-first CSS for rapid, responsive UI development.
+- **State Management & Data Fetching**: TanStack Query v5 - Handles server state, caching, and background updates efficiently.
+- **Form Management**: React Hook Form + Zod - Performant, schema-based validation.
+- **Visualization**: Recharts 2.15 - Responsive, composable charting library for data analytics.
+
+### ⛓️ Blockchain & Web3 Layer
+- **Smart Contracts**: Solidity 0.8.20 - Secure contract logic with reentrancy protection.
+- **Standards**: OpenZeppelin Contracts - Industry-standard security patterns (AccessControl, ReentrancyGuard).
+- **Interaction Library**: Ethers.js 6.15 - Lightweight, complete Ethereum wallet implementation and contract interaction.
+- **Network**: Polygon PoS (Planned Mainnet) / Sepolia (Testnet) - Chosen for high throughput and low transaction costs.
+
+### ☁️ Backend & Cloud Infrastructure
+- **BaaS (Backend-as-a-Service)**: Supabase - Provides:
+  - **Database**: PostgreSQL with Row Level Security (RLS) for granular access control.
+  - **Auth**: Secure JWT-based authentication linked to Web3 wallets.
+  - **Storage**: Object storage for non-critical media.
+- **Decentralized Storage**: Pinata IPFS - Immutable, distributed storage for harvest certificates and critical proofs.
+- **API Layer**: RESTful Microservices Architecture.
+
+### 🤖 AI & IoT Intelligence
+- **Generative AI**: Google Gemini 2.5 Flash API - Low-latency multimodal model for structuring voice data and analyzing crop health images.
+- **Voice Processing**: VoiceGenie API - Specialized telephony integration for handling concurrent farmer calls.
+- **IoT Connectivity**: ESP32/Arduino REST API - Lightweight endpoints for ingesting real-time soil telemetry (NPK, pH, Moisture).
+
+### 🚀 DevOps, Scalability & Deployment
+- **Containerization**: Docker - Ensures consistent environments across development, testing, and production microservices.
+- **Orchestration**: Kubernetes (K8s) - Manages container scaling, specifically for the AI Inference and Voice Handling nodes during high-traffic harvest seasons.
+- **CI/CD Pipeline**: GitHub Actions - Automated testing, linting (ESLint 9.32), and deployment workflows.
+- **Code Quality**: ESLint + Prettier - Enforces strict coding standards and consistent formatting.
+- **Production Hosting**:
+  - **Frontend**: Vercel/Netlify (Edge Network).
+  - **Services**: AWS EKS / Google GKE.
 
 ---
 
-## 🗺️ Roadmap - Phase 2
+## 👥 User Roles & Workflows
+![AgriTrace Diagram](https://res.cloudinary.com/doihobmas/image/upload/v1767030978/Screenshot_2025-12-29_232556_oiidig.png)
+### 🌾 Farmer
 
-### 🎯 Upcoming Features (Q2 2024)
+**Capabilities:**
+- Register new crop batches via web form or phone call
+- View registered batches and certificates
+- Access farmer marketplace (view only, cannot purchase)
+- Track batch status and ownership transfers
+- View market price suggestions
 
-#### 🔗 Multi-Chain Support
-- Multiple blockchain networks (Ethereum, Polygon, BSC)
-- Cross-chain interoperability
-- Chain selection for users
-- Gas optimization on Layer 2
-- Network-agnostic platform
+**Registration Flow:**
+1. Connect Web3 wallet (MetaMask)
+2. Fill batch registration form or call VoiceGenie
+3. System fetches IoT soil data automatically
+4. AI analyzes crop quality based on soil parameters
+5. PDF certificate generated with QR code
+6. Certificate uploaded to IPFS
+7. Batch registered on blockchain
+8. Farmer receives confirmation
 
-#### 🚚 Truck Pooling System
-- AI-powered route optimization
-- Cost-sharing mechanism
-- GPS-based tracking
-- Scheduling system
-- Marketplace integration
+### 🏪 Distributor
 
-#### 🤖 AI Crop Health Detection
-- Image recognition for crop analysis
-- Disease detection
-- Pest identification
-- Growth monitoring
-- Treatment recommendations
+**Capabilities:**
+- Purchase batches from farmer marketplace
+- Manage distributor inventory
+- Sell batches to retailers via distributor marketplace
+- View transaction history
+- Track supply chain
 
-#### 📡 IoT-Based Farm Land Health
-- Sensor integration (moisture, temperature, pH)
-- Real-time monitoring
-- Data analytics
-- Automated alerts
-- Smart irrigation
+**Purchase Flow:**
+1. Browse farmer marketplace
+2. Select batch and review certificate
+3. Initiate purchase transaction
+4. Approve blockchain transaction
+5. Ownership transferred on-chain
+6. Batch added to distributor inventory
 
-#### 💰 Escrow System
-- Secure payment holding
-- Smart contract automation
-- Dispute resolution
-- Multi-party escrow
-- Refund protection
+### 🛒 Retailer
 
-#### 📞 AI Calling Agent
-- Voice interface for offline farmers
-- Phone integration (feature phones)
-- IVR system
-- Multi-language support
-- SMS notifications
-- USSD support
+**Capabilities:**
+- Purchase batches from distributor marketplace
+- Manage retailer inventory
+- View product details and certificates
+- Track supply chain history
+- QR code scanning for verification
+
+**Purchase Flow:**
+1. Browse distributor marketplace
+2. Select batch and verify certificate
+3. Complete purchase transaction
+4. Ownership transferred
+5. Batch added to retailer inventory
+
+### 👨‍💼 Admin
+
+**Capabilities:**
+- Access Helper Desk for voice registration review
+- Approve/reject batch registrations from phone calls
+- View system analytics
+- Manage user roles
+- Monitor system health
+
+**Helper Desk Workflow:**
+1. View pending voice registrations
+2. Review extracted data and confidence scores
+3. Validate information completeness
+4. Approve or request corrections
+5. System processes approved registrations
 
 ---
 
-## 🚀 Getting Started
+## 🔌 API Integrations
 
-### Prerequisites
+### VoiceGenie API
+- **Purpose**: Voice-based batch registration for farmers without internet
+- **Endpoint**: `https://voiceagent-6h5b.onrender.com/api/calls`
+- **Method**: GET
+- **Authentication**: API Key
+- **Response**: Call transcripts, conversation data, metadata
 
-- **Node.js** 18+ and npm/yarn
-- **MetaMask** browser extension
-- **Supabase** account
-- **Pinata** account (for IPFS)
+### Google Gemini API
+- **Purpose**: 
+  - Extract structured data from voice transcripts
+  - Analyze crop quality based on soil data
+- **Model**: `gemini-2.5-flash`
+- **Endpoint**: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent`
+- **Authentication**: API Key
+- **Features**:
+  - Natural language understanding
+  - JSON structured output
+  - Multi-language support (Hindi, Odia, Telugu, English)
 
-### Installation
+### IoT Hardware API
+- **Purpose**: Fetch real-time soil sensor data
+- **Endpoint**: `https://hardwareapi-4xbs.onrender.com/latest`
+- **Method**: GET
+- **Data Points**:
+  - Temperature
+  - Humidity
+  - Soil Moisture
+  - pH Level
+  - NPK Levels (Nitrogen, Phosphorus, Potassium)
+  - Light (LDR)
+  - Gas levels
+  - Rain detection
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd AgriTrace
-   ```
+### Pinata IPFS
+- **Purpose**: Store harvest certificates immutably
+- **Service**: Pinata IPFS
+- **Features**:
+  - Group-based file organization
+  - JWT authentication
+  - Metadata storage
+  - Direct IPFS gateway access
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+### Mandi Price API
+- **Purpose**: Provide market price suggestions
+- **Integration**: Multiple mandi price APIs
+- **Data**: Real-time crop prices by location
 
-3. **Set up environment variables**
-   
-   Create a `.env` file:
-   ```env
-   VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-   VITE_PINATA_API_KEY=your_pinata_api_key
-   VITE_PINATA_SECRET_KEY=your_pinata_secret_key
-   VITE_PINATA_JWT=your_pinata_jwt
-   ```
+---
 
-4. **Start development server**
-   ```bash
-npm run dev
+## 🗄️ Database Schema
+
+### Core Tables
+
+#### `profiles`
+- User profile information
+- Role-based access (farmer, distributor, retailer, admin)
+- Wallet address linkage
+
+#### `batches`
+- Crop batch registration data
+- Links to IPFS certificates
+- Blockchain transaction hashes
+- Crop analysis data (JSONB)
+- Soil data (JSONB)
+
+#### `marketplace`
+- Available batches for sale
+- Pricing information
+- Availability status
+- Owner information
+
+#### `transactions`
+- Supply chain transaction records
+- Buyer/seller information
+- Blockchain transaction hashes
+- Timestamps
+
+#### `inventory` (Distributor/Retailer)
+- Current inventory holdings
+- Batch ownership
+- Quantity tracking
+
+### Key Relationships
+
+```mermaid
+erDiagram
+    PROFILES ||--o{ BATCHES : creates
+    BATCHES ||--o| MARKETPLACE : listed_in
+    BATCHES ||--o{ TRANSACTIONS : tracked_in
+    PROFILES ||--o{ TRANSACTIONS : participates_in
+    PROFILES ||--o{ INVENTORY : owns
+    BATCHES ||--o{ INVENTORY : stored_in
 ```
+## 🚀 Scalability & Infrastructure
 
-5. **Build for production**
+AgriTrace is built as a **fully modularized microservices architecture**, allowing each component to scale independently based on load.
+
+### 🏗️ Microservices Architecture
+* **Auth Service:** Handles JWT & Wallet authentication (Stateless).
+* **Ingestion Service:** Processes high-velocity IoT data streams via MQTT.
+* **AI Inference Node:** Dedicated isolated environments for running heavy ML models.
+* **Blockchain Listener:** Event-driven service that syncs on-chain data to our off-chain SQL database for rapid querying.
+
+### 🌐 Hosting & Deployment Strategy
+
+#### 1. Backend & API Services (Containerized)
+We use **Docker** to containerize all services, orchestrated via **Kubernetes (K8s)** for auto-scaling.
+* **Hosting:** AWS EKS / Google GKE (scalable clusters).
+* **Load Balancing:** NGINX Ingress controller to route traffic between the Voice Agent and Dashboard.
+
+#### 2. Local "Edge" AI Deployment (Privacy & Speed)
+Unlike traditional cloud-dependent architectures, we deploy our AI models **locally** on edge servers or private clusters to ensure data privacy and zero-latency processing.
+* **Crop Disease Models:** Deployed on edge devices using **TensorFlow Lite**.
+* **LLM (Gemini):** We utilize **Local Inference Nodes** running optimized, distilled versions of Large Language Models (including **Gemini Nano** or quantized variants) directly on our secure infrastructure. This ensures:
+    * **Zero Data Leakage:** Farmer voice data never leaves our secure perimeter.
+    * **Offline Capability:** Critical analysis can happen even with intermittent internet connectivity.
+
+#### 3. Blockchain (Layer 2)
+* **Network:** Polygon (chosen for high throughput of ~65,000 TPS and negligible gas fees).
+* **Storage:** We utilize **IPFS (Pinata)** for decentralized file storage, keeping the ledger lightweight.
+
+---
+
+## 🚢 Deployment
+
+### Environment Setup
+
+1. **Set production environment variables**
+   ```env
+   VITE_SUPABASE_URL=production_url
+   VITE_SUPABASE_ANON_KEY=production_key
+   VITE_GEMINI_API_KEY=production_key
+   VITE_CONTRACT_ADDRESS=mainnet_contract_address
+   VITE_NETWORK=mainnet
+   ```
+
+2. **Build the application**
    ```bash
    npm run build
    ```
 
----
+3. **Deploy to hosting platform**
+   - **Vercel**: Connect GitHub repo, auto-deploy
+   - **Netlify**: Drag & drop `dist` folder
+   - **AWS S3 + CloudFront**: Upload `dist` to S3 bucket
+   - **GitHub Pages**: Use GitHub Actions
 
-## 📁 Project Structure
+### Smart Contract Deployment
 
-```
-src/
-├── components/          # React components
-│   ├── layout/         # Layout components
-│   ├── ui/             # shadcn/ui components
-│   └── ...             # Feature components
-├── contexts/           # React contexts
-│   ├── AuthContext.tsx
-│   └── Web3Context.tsx
-├── contracts/          # Smart contract configs
-│   ├── AgriTrace.json
-│   └── config.ts
-├── hooks/              # Custom hooks
-│   ├── useContract.ts
-│   └── use-toast.ts
-├── integrations/       # Third-party integrations
-│   └── supabase/
-├── pages/              # Page components
-│   ├── Auth/
-│   ├── Dashboard/
-│   └── ...
-├── services/           # Business logic services
-│   ├── blockchain/     # Blockchain operations
-│   ├── ipfs/           # IPFS operations
-│   └── ...
-├── types/              # TypeScript types
-├── utils/              # Utility functions
-│   ├── helpers/
-│   └── qr/
-└── constants/          # App constants
-```
+1. **Compile contract**
+   ```bash
+   npx hardhat compile
+   ```
+
+2. **Deploy to network**
+   ```bash
+   npx hardhat run scripts/deploy.js --network mainnet
+   ```
+
+3. **Update contract address** in `.env`
+
+### Database Migration
+
+Run Supabase migrations in production:
+1. Connect to production Supabase project
+2. Run SQL scripts in order
+3. Verify schema matches development
 
 ---
 
-## 📚 API Documentation
+## 📚 Documentation
 
-### Blockchain Service
+### Additional Documentation Files
 
-```typescript
-// Initialize blockchain manager
-initializeBlockchainManager(provider, signer)
+- **[ENV_SETUP.md](./ENV_SETUP.md)**: Detailed environment variable setup
+- **[OMNIDIM_INTEGRATION_ROADMAP.md](./OMNIDIM_INTEGRATION_ROADMAP.md)**: Voice integration roadmap
+- **[COMPLETE_SUPPLY_CHAIN_FLOW.md](./COMPLETE_SUPPLY_CHAIN_FLOW.md)**: Supply chain flow details
 
-// Record harvest transaction
-recordHarvestTransaction(
-  batchId: string,
-  farmerAddress: string,
-  cropType: string,
-  variety: string,
-  quantity: number,
-  price: number,
-  ipfsHash: string
-): Promise<BlockchainTransaction>
+### Key Service Files
 
-// Record purchase transaction
-recordPurchaseTransaction(
-  batchId: string,
-  fromAddress: string,
-  toAddress: string,
-  quantity: number,
-  price: number
-): Promise<BlockchainTransaction>
-```
+- `src/services/geminiService.ts`: AI data extraction
+- `src/services/voicegenieService.ts`: Voice call integration
+- `src/services/iotSoilDataService.ts`: IoT data fetching
+- `src/services/cropAnalysisService.ts`: Crop quality analysis
+- `src/utils/singleStepGroupManager.ts`: IPFS certificate management
+- `src/utils/blockchainTransactionManager.ts`: Blockchain interactions
 
-### IPFS Service
+---
+## 🔬 Research & Market Analysis
 
-```typescript
-// Upload file to IPFS
-uploadFile(
-  file: File | Blob,
-  fileName: string,
-  metadata?: PinataMetadata
-): Promise<PinataResponse>
+Our architecture is not just theoretical; it is a **second-generation Agritech solution** designed by analyzing the specific failure points of first-generation startups like **ReshaMandi**, **Ninjacart**, and **Intello Labs**. We have identified *why* they struggled and built **AgriTrace** as a "modified better version" that solves these structural issues.
 
-// Upload certificate
-uploadCertificate(
-  pdfBlob: Blob,
-  batchId: string,
-  metadata?: any
-): Promise<string>
+| Failure Point (Industry Analysis) | The AgriTrace Solution |
+| :--- | :--- |
+| **1. The Logistics Trap** (Ref: *ReshaMandi, Ninjacart*)<br>First-gen startups adopted an **"Asset-Heavy" model**, owning trucks and warehouses. This led to massive cash burn where logistics costs consumed 30-40% of revenue, making unit economics unsustainable. | **Algorithmic Truck Pooling**<br>Instead of buying trucks, our system detects **"Empty Return Trips"** of existing logistics providers. By matching farmers with trucks that are *already* returning empty from urban centers, we slash transport costs by **~40%**. This is a modified asset-light version that prioritizes utilization over ownership. |
+| **2. The Credit Crisis** (Ref: *Groc, AgNext*)<br>Startups often failed because they tried to eliminate middlemen (Arhatiyas) without replacing the **credit/financing** they provided. Farmers went back to middlemen because they needed immediate working capital. | **Smart Contract Escrow & Milestone Payments**<br>We don't just facilitate payments; we automate trust. Buyers deposit funds into a blockchain Escrow. The system releases **partial working capital** to the farmer immediately upon verified harvest registration (via IoT/Voice). This replaces predatory lending with **asset-backed liquidity**. |
+| **3. The "Tech-Tax" Barrier** (Ref: *Intello Labs, DeHaat*)<br>Solutions relying on complex apps or expensive grading hardware ($1000+ devices) faced poor adoption among marginal farmers (earning <₹10k/month). The "Digital Divide" killed scalability. | **VoiceGenie (AgroSathi) & Commodity IoT**<br>We removed the screen entirely. Farmers register batches via a simple phone call in their local dialect (Odia/Hindi). Coupled with **$10 ESP32 IoT sensors** (vs. expensive spectrometers), we lower the entry barrier by **90%**, making technology accessible to the poorest farmers. |
+| **4. The Trust Deficit** (Ref: *E-Mandi Platforms*)<br>E-Mandis often fail because remote buyers don't trust the quality reported by farmers ("Grade A" on the app turns out to be "Grade C" on delivery). | **Multi-Modal Verification (AI + IoT)**<br>We introduce **"Proof of Quality"**. We don't rely on a single data point; we cross-verify **Visual Data** (Gemini AI analyzing crop photos) with **Environmental Data** (IoT Soil Sensors). This dual-validation is stamped on the Blockchain, creating an **Immutable Quality Certificate** buyers can trust blindly. 
+---
+## 💰 Business Viability & Revenue Model
+AgriTrace is designed for long-term sustainability through diverse revenue streams:
+* **Transaction Fees:** Small % on successful escrow releases (replacing high middleman commissions).
+* **Premium Analytics:** Paid subscription for large Retailers/Distributors for advanced supply chain forecasting.
+* **Institutional Data:** Monetizing anonymized regional crop health data for Insurance companies and Government agencies.
+---
+### 👥 Team Contributions
 
-// Get file URL
-getFileUrl(ipfsHash: string): string
-```
+| Member | Role | Key Contributions |
+| :--- | :--- | :--- |
+| **Jarir Khan** | Full Stack & Blockchain | Developed the `AgriTrace.sol` smart contract, integrated Ethers.js, and built the React frontend architecture. |
+| **Sahil Gawade** | Backend & Blockchain  |  Gemini AI prompt engineering for crop analysis, and backend API services. |
+| **Yusuf Kondkari** | Ai Agents,Backend and Hardware | configured the IoT sensors (ESP32/Arduino) for real-time soil data (NPK, Moisture) ,Implemented `VoiceGenie` integration, developed the "Truck Pooling" logistics logic. |
+| **Tauhid Khan** | Full Stack | UI and Module Integration |
+### Code Style
 
-### Transaction Service
-
-```typescript
-// Create transaction
-createTransaction(
-  type: 'HARVEST' | 'PURCHASE' | 'TRANSFER',
-  from: string,
-  to: string,
-  quantity: number,
-  price: number,
-  batchId: string
-): Promise<SupplyChainTransaction>
-
-// Get batch transactions
-getBatchTransactions(batchId: string): Promise<SupplyChainTransaction[]>
-
-// Get transaction chain
-getTransactionChain(batchId: string): Promise<TransactionChain>
-```
+- Follow TypeScript best practices
+- Use ESLint for linting
+- Write meaningful commit messages
+- Add comments for complex logic
+- Update documentation for new features
 
 ---
 
-## 🤝 Contributing
+## 🙏 Acknowledgments
 
-This is a government project developed for the Government of Odisha. For contributions, please contact the project administrators.
-
----
-
-## 📞 Support
-
-For issues and questions, please contact the development team.
-
----
-
-## 📝 License
-
-This project is developed for the Government of Odisha.
+- **OpenZeppelin** for smart contract security patterns
+- **Supabase** for backend infrastructure
+- **Shadcn** for UI components
+- **VoiceGenie** for voice integration
+- **Google Gemini** for AI capabilities
 
 ---
 
 <div align="center">
 
-**Built with ❤️ for the Government of Odisha**
+**Built with ❤️ for the farmers**
 
-*Empowering Farmers Through Technology | Complete Transparency | Farm to Table Traceability*
-
-[🌐 Website](#) | [📧 Email](#) | [📱 Support](#)
-
----
-
-*Last Updated: 2024*
 
 </div>
