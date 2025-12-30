@@ -87,7 +87,7 @@ export const Web3Provider: React.FC<Web3ProviderProps> = ({ children }) => {
                   {
                     chainId: '0xaa36a7', // 11155111 in hex
                     chainName: 'Sepolia Testnet',
-                    rpcUrls: ['https://sepolia.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161'],
+                    rpcUrls: [NETWORK_CONFIG.sepolia.rpcUrl],
                     blockExplorerUrls: ['https://sepolia.etherscan.io/'],
                     nativeCurrency: {
                       name: 'Ethereum',
@@ -100,7 +100,7 @@ export const Web3Provider: React.FC<Web3ProviderProps> = ({ children }) => {
               console.log('Successfully added Sepolia Testnet');
             } catch (addError: any) {
               console.error('Error adding Sepolia Testnet:', addError);
-              alert('Failed to add Sepolia Testnet. Please add it manually in MetaMask:\n\nNetwork Name: Sepolia Testnet\nRPC URL: https://sepolia.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161\nChain ID: 11155111\nCurrency Symbol: ETH');
+              alert(`Failed to add Sepolia Testnet. Please add it manually in MetaMask:\n\nNetwork Name: Sepolia Testnet\nRPC URL: ${NETWORK_CONFIG.sepolia.rpcUrl}\nChain ID: ${NETWORK_CONFIG.sepolia.chainId}\nCurrency Symbol: ETH`);
             }
           } else if (switchError.code === -32002) {
             console.log('Network switch request already pending, waiting...');
