@@ -41,7 +41,7 @@ AgriTrace is a comprehensive blockchain-powered agricultural supply chain manage
 
 ### Mission
 
-To empower farmers across Odisha with modern technology that provides complete transparency in the agricultural supply chain, ensures fair pricing, builds consumer trust, and promotes food security through verifiable, blockchain-powered certificates.
+To empower farmers across India with modern technology that provides complete transparency in the agricultural supply chain, ensures fair pricing, builds consumer trust, and promotes food security through verifiable, blockchain-powered certificates.
 
 ### Key Benefits
 
